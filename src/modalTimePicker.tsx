@@ -29,10 +29,12 @@ export function ModalTimePicker(properties: ModalTimePickerProps) {
   // clone duration to not change provided duration until confirmation
   const [duration, setDuration] = useState(cloneDuration(props.duration));
 
-  // update modal duration if duration from properties changes
+  // reset duration to provided duration
   useEffect(() => {
-    setDuration(cloneDuration(props.duration));
-  }, [props.duration]);
+    if (!props.visible) {
+      setDuration(cloneDuration(props.duration));
+    }
+  }, [props.duration, props.visible]);
 
   const contentContainerStyle: ViewStyle = {
     alignItems: "center",
