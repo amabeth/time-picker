@@ -8,7 +8,7 @@ Offers an inline and a modal time picker.
 ## Installation
 
 ```sh
-npm install time-picker
+npm install @amabeth/time-picker
 ```
 
 ## Usage
@@ -35,9 +35,9 @@ return (
 ```tsx
 import {
   ModalTimePicker,
-  type ModalTimePickerProps
+  type ModalTimePickerProps,
+  durationToString
 } from "@amabeth/time-picker";
-import { durationToString } from "./duration";
 
 // ...
 const [duration, setDuration] = useState<Duration>({hours: 0, minutes: 0, seconds: 0});
