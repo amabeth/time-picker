@@ -15,6 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [1.0.1] - 2025-07-17
+
+### Fixed
+
+- Removed unused dependencies
+- Fixed backdrop flicker on tap out
+
 ## [1.0.0] - 2025-07-17
 
 ### Added

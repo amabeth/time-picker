@@ -1,6 +1,6 @@
 {
   "name": "@amabeth/time-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React Native time picker based on @amabeth/repeating-wheel-picker",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -43,6 +43,7 @@
   },
   "keywords": [
     "react-native",
+    "expo",
     "ios",
     "android",
     "time-picker",
@@ -64,10 +65,7 @@
   },
   "dependencies": {
     "@amabeth/repeating-wheel-picker": "^1.1.0",
-    "expo": "^53.0.19",
-    "expo-navigation-bar": "~4.2.7",
-    "react-native-modal": "^14.0.0-rc.1",
-    "react-native-safe-area-context": "^5.5.1"
+    "react-native-modal": "^14.0.0-rc.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^19.6.0",

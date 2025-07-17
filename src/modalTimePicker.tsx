@@ -50,8 +50,9 @@ export function ModalTimePicker(properties: ModalTimePickerProps) {
       animationIn={"slideInUp"}
       animationOut={"slideOutDown"}
       statusBarTranslucent
-      /* custom backdrop to enable tapping out */
+      /* custom backdrop to manage tapping out */
       customBackdrop={Backdrop({ duration: duration, props: props })}
+      backdropTransitionOutTiming={15}
     >
       <View style={contentContainerStyle}>
         {/* content inside the modal */}
