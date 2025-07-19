@@ -1,6 +1,6 @@
 {
   "name": "@amabeth/time-picker",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A React Native time picker based on @amabeth/repeating-wheel-picker",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
