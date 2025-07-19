@@ -9,13 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Example not exported
+- All files exported
 
 ### Added
 
 ### Changed
 
 ### Removed
+
+## [1.0.4] - 2025-07-19
+
+### Fixed
+
+- Example not exported
 
 ## [1.0.3] - 2025-07-19
 
