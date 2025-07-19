@@ -1,6 +1,5 @@
 {
   "name": "time-picker-example",
-  "version": "1.0.2",
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
