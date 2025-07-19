@@ -1,1 +1,1 @@
-npm run test & npm run docs && git add docs/ && lint-staged
+npm run test & npm run docs && git add docs/ && lint-staged --allow-empty
