@@ -9,13 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Removed unnecessary version from example directory
+- Example not exported
 
 ### Added
 
 ### Changed
 
 ### Removed
+
+## [1.0.3] - 2025-07-19
+
+- Removed unnecessary version from example directory
 
 ## [1.0.2] - 2025-07-19
 
