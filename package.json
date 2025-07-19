@@ -1,6 +1,6 @@
 {
   "name": "@amabeth/time-picker",
-  "version": "1.0.7",
+  "version": "1.0.5",
   "description": "A React Native time picker based on @amabeth/repeating-wheel-picker",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -13,6 +13,7 @@
   },
   "files": [
     "lib",
+    "example/package.json",
     "example/*.ts",
     "example/*.tsx",
     "android",
@@ -39,7 +40,7 @@
     "clean": "del-cli lib",
     "prepare": "bob build & husky",
     "docs": "typedoc",
-    "release": "release-it"
+    "release": "release-it --only-version --config .release-it.json --debug"
   },
   "keywords": [
     "react-native",
@@ -68,7 +69,8 @@
     "react-native-modal": "^14.0.0-rc.1"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
     "@eslint/compat": "^1.3.1",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.30.1",
@@ -91,7 +93,7 @@
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
     "react-native-builder-bob": "^0.40.12",
-    "release-it": "^19.0.3",
+    "release-it": "^19.0.4",
     "typedoc-github-theme": "^0.3.0",
     "typedoc-plugin-coverage": "^4.0.1",
     "typescript": "^5.8.3"
@@ -103,7 +105,8 @@
   "overrides": {
     "@react-native/eslint-config": {
       "eslint": "$eslint"
-    }
+    },
+    "conventional-changelog-conventionalcommits": "8.0.0"
   },
   "workspaces": [
     "example"
@@ -169,50 +172,7 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}",
-      "requireCleanWorkingDir": true,
-      "requireBranch": "main"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true,
-      "releaseName": "v${version}"
-    },
-    "hooks": {
-      "before:init": [
-        "npm test"
-      ],
-      "after:bump": "npm run prepare && npm run generate-tarball",
-      "after:release": "echo Successfully released ${name} v${version} to npm and GitHub!"
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "infile": "CHANGELOG_TEST.md",
-        "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\nThe format is based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).",
-        "preset": {
-          "name": "conventionalcommits",
-          "types": [
-            {
-              "type": "feat",
-              "section": "Features"
-            },
-            {
-              "type": "fix",
-              "section": "Bug Fixes"
-            },
-            {}
-          ]
-        }
-      }
-    }
   }
 }
