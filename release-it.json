@@ -1,0 +1,28 @@
+{
+  "git": {
+    "commitMessage": "chore: release ${version}",
+    "tagName": "v${version}",
+    "requireCleanWorkingDir": true,
+    "requireBranch": "main"
+  },
+  "npm": {
+    "publish": true
+  },
+  "github": {
+    "release": true,
+    "draft": true,
+    "releaseName": "v${version}"
+  },
+  "hooks": {
+    "before:init": ["npm run lint", "npm test"],
+    "after:bump": "npm run build && npm run generate-tarball",
+    "after:release": "echo Successfully released ${name} v${version} to npm and GitHub!"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "angular"
+      }
+    }
+  }
+}
