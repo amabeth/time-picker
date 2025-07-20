@@ -14,8 +14,8 @@
   "files": [
     "lib",
     "example/package.json",
-    "example/*.ts",
-    "example/*.tsx",
+    "example/**/*.ts",
+    "example/**/*.tsx",
     "android",
     "ios",
     "cpp",
@@ -40,7 +40,7 @@
     "clean": "del-cli lib",
     "prepare": "bob build & husky",
     "docs": "typedoc",
-    "release": "release-it --only-version --config .release-it.json --debug"
+    "release": "release-it --config .release-it.json --only-version"
   },
   "keywords": [
     "react-native",

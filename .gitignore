@@ -84,3 +84,6 @@ nitrogen/
 
 # eslint
 .eslintcache
+
+# environment variables
+.env*
