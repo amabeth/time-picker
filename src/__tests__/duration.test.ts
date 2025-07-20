@@ -1,17 +1,21 @@
 import {
   cloneDuration,
   durationEquals,
+  durationFromDate,
+  durationFromNow,
   durationFromSeconds,
   durationMinusSeconds,
   DurationOperationError,
   durationPlusSeconds,
   durationsDifference,
   durationsSum,
+  durationToDate,
   durationToSeconds,
   durationToString,
   isValid
 } from "../services/duration";
 import { expect } from "@jest/globals";
+import { isEqual } from "date-fns";
 
 expect.addEqualityTesters([durationEquals]);
 
@@ -139,6 +143,95 @@ describe("durationFromSeconds", () => {
       minutes: 23,
       seconds: 30
     });
+  });
+});
+
+describe("durationFromNow", () => {
+  test("provides duration", () => {
+    expect(durationFromNow()).toBeDefined();
+  });
+});
+
+describe("durationFromDate", () => {
+  test("date -> matching duration", () => {
+    const date = new Date("2025-07-20T10:00:59");
+
+    expect(durationFromDate(date)).toEqual({
+      hours: 10,
+      minutes: 0,
+      seconds: 59
+    });
+  });
+});
+
+describe("durationToDate", () => {
+  test("invalid duration -> error", () => {
+    const duration = { hours: 0, minutes: 0, seconds: 61 };
+    const date = new Date("2025-07-20T10:00:59");
+
+    expect(() => durationToDate({ duration, baseDate: date })).toThrow(
+      DurationOperationError
+    );
+  });
+
+  test("duration resulting in future and don't enforce future -> date with future time", () => {
+    const duration = { hours: 10, minutes: 5, seconds: 10 };
+    const baseDate = new Date("2025-07-20T10:00:59");
+
+    const resultDate = durationToDate({ duration, baseDate: baseDate });
+    expect(isEqual(resultDate, new Date("2025-07-20T10:05:10"))).toBeTruthy();
+  });
+
+  test("duration resulting in same time and don't enforce future -> date with same time", () => {
+    const duration = { hours: 10, minutes: 0, seconds: 59 };
+    const baseDate = new Date("2025-07-20T10:00:59");
+
+    const resultDate = durationToDate({ duration, baseDate: baseDate });
+    expect(isEqual(resultDate, new Date("2025-07-20T10:00:59"))).toBeTruthy();
+  });
+
+  test("duration resulting in past and don't enforce future -> date with past time", () => {
+    const duration = { hours: 5, minutes: 7, seconds: 10 };
+    const baseDate = new Date("2025-07-20T10:00:59");
+
+    const resultDate = durationToDate({ duration, baseDate: baseDate });
+    expect(isEqual(resultDate, new Date("2025-07-20T05:07:10"))).toBeTruthy();
+  });
+
+  test("duration resulting in future and enforce future -> date with future time", () => {
+    const duration = { hours: 10, minutes: 5, seconds: 10 };
+    const baseDate = new Date("2025-07-20T10:00:59");
+
+    const resultDate = durationToDate({
+      duration,
+      baseDate: baseDate,
+      enforceInFuture: true
+    });
+    expect(isEqual(resultDate, new Date("2025-07-20T10:05:10"))).toBeTruthy();
+  });
+
+  test("duration resulting in same time and enforce future -> date with future time", () => {
+    const duration = { hours: 10, minutes: 0, seconds: 59 };
+    const baseDate = new Date("2025-07-20T10:00:59");
+
+    const resultDate = durationToDate({
+      duration,
+      baseDate: baseDate,
+      enforceInFuture: true
+    });
+    expect(isEqual(resultDate, new Date("2025-07-21T10:00:59"))).toBeTruthy();
+  });
+
+  test("duration resulting in past and enforce future -> date with future time", () => {
+    const duration = { hours: 5, minutes: 7, seconds: 10 };
+    const baseDate = new Date("2025-07-20T10:00:59");
+
+    const resultDate = durationToDate({
+      duration,
+      baseDate: baseDate,
+      enforceInFuture: true
+    });
+    expect(isEqual(resultDate, new Date("2025-07-21T05:07:10"))).toBeTruthy();
   });
 });
 

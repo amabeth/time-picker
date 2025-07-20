@@ -1,3 +1,5 @@
+import { add, set } from "date-fns";
+
 const HOURS_TO_MINUTES = 60;
 const MINUTES_TO_SECONDS = 60;
 const HOURS_TO_SECONDS = MINUTES_TO_SECONDS * HOURS_TO_MINUTES;
@@ -18,6 +20,9 @@ export {
   durationToString,
   durationToSeconds,
   durationFromSeconds,
+  durationFromNow,
+  durationFromDate,
+  durationToDate,
   cloneDuration,
   durationsSum,
   durationsDifference,
@@ -126,6 +131,72 @@ function durationFromSeconds(seconds: number): Duration {
     minutes: minutesFromSeconds(seconds),
     seconds: seconds % MINUTES_TO_SECONDS
   };
+}
+
+/**
+ * Convert current time into duration.
+ */
+function durationFromNow(): Duration {
+  return durationFromDate(new Date());
+}
+
+/**
+ * Convert time of date to duration.
+ *
+ * @param date to convert
+ */
+function durationFromDate(date: Date): Duration {
+  return {
+    hours: date.getHours(),
+    minutes: date.getMinutes(),
+    seconds: date.getSeconds()
+  };
+}
+
+/**
+ * Maps the duration onto a date. Takes the provided date and sets the time to the time defined in the duration.
+ * If the resulting date should be in the future, and it would not be by setting the time to the duration, also increase
+ * the day of the date by one. Returns a new date and doesn't change the existing one.
+ *
+ * @param duration to set as time
+ * @param baseDate date to map onto
+ * @param enforceInFuture flag if date should be enforced to be in the future
+ */
+function durationToDate({
+  duration,
+  baseDate = new Date(),
+  enforceInFuture = false
+}: {
+  duration: Duration;
+  baseDate?: Date;
+  enforceInFuture?: boolean;
+}): Date {
+  if (!isValid(duration)) {
+    throw new DurationOperationError(
+      "durationToDate",
+      [{ name: "duration", value: JSON.stringify(duration) }],
+      VALID_CONSTRAINT
+    );
+  }
+
+  // if result date should be in the future: if duration is a later time than the time of the date, increase date by one day and then set time
+  if (
+    enforceInFuture &&
+    (baseDate.getHours() > duration.hours ||
+      (baseDate.getHours() === duration.hours &&
+        baseDate.getMinutes() > duration.minutes) ||
+      (baseDate.getHours() === duration.hours &&
+        baseDate.getMinutes() === duration.minutes &&
+        baseDate.getSeconds() >= duration.seconds))
+  ) {
+    baseDate = add(baseDate, { days: 1 });
+  }
+
+  return set(baseDate, {
+    hours: duration.hours,
+    minutes: duration.minutes,
+    seconds: duration.seconds
+  });
 }
 
 /**
