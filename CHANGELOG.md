@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0](https://github.com/amabeth/time-picker/compare/v1.1.3...v1.2.0) (2025-07-20)
+
+### Features
+
+* add conversion functions between Duration and Date ([96a3d86](https://github.com/amabeth/time-picker/commit/96a3d86c148005c4dee2b59a3fea688762753d94))
+
 ## [1.1.3](https://github.com/amabeth/time-picker/compare/v1.1.2...v1.1.3) (2025-07-20)
 
 ### Bug Fixes
