@@ -85,5 +85,6 @@ nitrogen/
 # eslint
 .eslintcache
 
-# environment variables
+# environment variables except example
 .env*
+!.env.example
