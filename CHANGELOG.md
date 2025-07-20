@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3](https://github.com/amabeth/time-picker/compare/v1.1.2...v1.1.3) (2025-07-20)
+
+### Bug Fixes
+
+* update from deprecated repeating-wheel-picker version ([483b147](https://github.com/amabeth/time-picker/commit/483b14796e24713003f92d3720579800d831988c))
+
 ## [1.1.2](https://github.com/amabeth/time-picker/compare/v1.1.1...v1.1.2) (2025-07-20)
 
 ### Bug Fixes
