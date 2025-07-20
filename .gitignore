@@ -88,3 +88,5 @@ nitrogen/
 # environment variables except example
 .env*
 !.env.example
+.npmrc*
+!.npmrc.example

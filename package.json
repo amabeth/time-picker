@@ -30,7 +30,8 @@
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
-    "!**/.*"
+    "!**/.*",
+    "!**/node_modules"
   ],
   "scripts": {
     "example": "cd example & npm start",
@@ -40,7 +41,7 @@
     "clean": "del-cli lib",
     "prepare": "bob build & husky",
     "docs": "typedoc",
-    "release": "dotenv release-it --config .release-it.json --only-version"
+    "release": "npx dotenv -- release-it --config .release-it.json"
   },
   "keywords": [
     "react-native",
