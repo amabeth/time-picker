@@ -46,7 +46,7 @@ export function WheelPickerRow({
   const baseProps: Partial<RepeatingWheelPickerProps<number>> = {
     enabled: props.pickersEnabled,
     itemHeight: props.pickerItemHeight,
-    itemDisplayCount: 3,
+    itemDisplayCount: props.pickerItemDisplayCount ?? 3,
 
     containerVerticalPadding: props.pickerContainerVerticalPadding,
     containerHorizontalPadding: props.pickerContainerHorizontalPadding,

@@ -41,7 +41,7 @@
     "clean": "del-cli lib",
     "prepare": "bob build & husky",
     "docs": "typedoc",
-    "release": "npx dotenv -- release-it --config .release-it.json"
+    "release": "npx dotenv -- release-it --config .release-it.json --ci"
   },
   "keywords": [
     "react-native",
