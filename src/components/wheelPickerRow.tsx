@@ -80,7 +80,7 @@ export function WheelPickerRow({
             width={maxWidth}
             baseProps={baseProps}
             labelStyle={props.hoursTimeLabelStyle}
-            label={props.hoursTimeLabel}
+            label={props.showTimeLabels ? props.hoursTimeLabel : undefined}
             onPickerLayout={onPickerLayout}
             onLabelLayout={onMaxWidthLayout}
           />
@@ -101,7 +101,7 @@ export function WheelPickerRow({
             width={maxWidth}
             baseProps={baseProps}
             labelStyle={props.minutesTimeLabelStyle}
-            label={props.minutesTimeLabel}
+            label={props.showTimeLabels ? props.minutesTimeLabel : undefined}
             onPickerLayout={onPickerLayout}
             onLabelLayout={onMaxWidthLayout}
           />
@@ -119,7 +119,7 @@ export function WheelPickerRow({
           width={maxWidth}
           baseProps={baseProps}
           labelStyle={props.secondsTimeLabelStyle}
-          label={props.secondsTimeLabel}
+          label={props.showTimeLabels ? props.secondsTimeLabel : undefined}
           onPickerLayout={onPickerLayout}
           onLabelLayout={onMaxWidthLayout}
         />
@@ -158,7 +158,7 @@ function Picker({
   width: number;
   baseProps: Partial<RepeatingWheelPickerProps<number>>;
   labelStyle: TextStyle;
-  label: string;
+  label?: string;
   onPickerLayout?: (event: LayoutChangeEvent) => void;
   onLabelLayout?: (event: LayoutChangeEvent) => void;
 }) {
@@ -172,9 +172,11 @@ function Picker({
           {...baseProps}
         />
       </View>
-      <Text style={labelStyle} onLayout={onLabelLayout}>
-        {label}
-      </Text>
+      {label !== undefined && (
+        <Text style={labelStyle} onLayout={onLabelLayout}>
+          {label}
+        </Text>
+      )}
     </View>
   );
 }
