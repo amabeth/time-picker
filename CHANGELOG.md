@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1](https://github.com/amabeth/time-picker/compare/v1.3.0...v1.3.1) (2025-07-21)
+
+### Bug Fixes
+
+* actually apply item display count to the pickers ([05bbe42](https://github.com/amabeth/time-picker/commit/05bbe427dc9afe59f58dc259437cc07ada02532a))
+
 ## [1.3.0](https://github.com/amabeth/time-picker/compare/v1.2.1...v1.3.0) (2025-07-21)
 
 ### Features
