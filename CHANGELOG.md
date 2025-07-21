@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.1](https://github.com/amabeth/time-picker/compare/v1.4.0...v1.4.1) (2025-07-21)
+
+### Bug Fixes
+
+* hide time labels if `showTimeLabels` is set to false ([8b784ab](https://github.com/amabeth/time-picker/commit/8b784ab7d1d483f5f46f5059ace13980125c84dc))
+
 ## [1.4.0](https://github.com/amabeth/time-picker/compare/v1.3.1...v1.4.0) (2025-07-21)
 
 ### Features
