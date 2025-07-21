@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0](https://github.com/amabeth/time-picker/compare/v1.3.1...v1.4.0) (2025-07-21)
+
+### Features
+
+* add option to add leading zero to time values ([5e337e3](https://github.com/amabeth/time-picker/commit/5e337e383a901e59c8c30fea5bcf787b1eb9d531))
+
 ## [1.3.1](https://github.com/amabeth/time-picker/compare/v1.3.0...v1.3.1) (2025-07-21)
 
 ### Bug Fixes
