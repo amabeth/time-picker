@@ -1,19 +1,7 @@
 import type { Duration } from "../services/duration";
-import {
-  type LayoutChangeEvent,
-  Text,
-  type TextStyle,
-  View,
-  type ViewStyle
-} from "react-native";
-import {
-  RepeatingWheelPicker,
-  type RepeatingWheelPickerProps
-} from "@amabeth/repeating-wheel-picker";
-import {
-  type TimePickerProps,
-  timePickerPropsWithDefaults
-} from "../services/timePickerProps";
+import { type LayoutChangeEvent, Text, type TextStyle, View, type ViewStyle } from "react-native";
+import { RepeatingWheelPicker, type RepeatingWheelPickerProps } from "@amabeth/repeating-wheel-picker";
+import { type TimePickerProps, timePickerPropsWithDefaults } from "../services/timePickerProps";
 import { useMemo } from "react";
 import { useMaxDimensions } from "../hooks/useDimensions";
 
@@ -56,6 +44,7 @@ export function WheelPickerRow({
 
   // common props passed to all pickers
   const baseProps: Partial<RepeatingWheelPickerProps<number>> = {
+    enabled: props.pickersEnabled,
     itemHeight: props.pickerItemHeight,
     itemDisplayCount: 3,
 

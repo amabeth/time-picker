@@ -67,7 +67,10 @@ export function timePickerPropsWithDefaults(
       ...props.secondsTimeLabelStyle
     },
 
+    pickersEnabled: props.pickersEnabled ?? true,
     pickerItemHeight: props.pickerItemHeight ?? 35,
+    pickerItemDisplayCount: props.pickerItemDisplayCount ?? 3,
+
     pickerContainerVerticalPadding: props.pickerContainerVerticalPadding ?? 0,
     pickerContainerHorizontalPadding:
       props.pickerContainerHorizontalPadding ?? 10,
@@ -273,11 +276,25 @@ export type TimePickerProps = {
   secondsTimeLabelStyle?: TextStyle;
 
   /**
+   * Enables / disables scrolling of all wheel pickers.
+   *
+   * @defaultValue true
+   */
+  pickersEnabled?: boolean;
+
+  /**
    * Height for an item of the wheel pickers.
    *
    * @defaultValue 35
    */
   pickerItemHeight?: number;
+  /**
+   * Number of items to display in every picker.
+   *
+   * @defaultValue 3
+   */
+  pickerItemDisplayCount?: number;
+
   /**
    * Vertical padding for the containers of the wheel pickers.
    *
