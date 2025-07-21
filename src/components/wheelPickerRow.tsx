@@ -36,6 +36,9 @@ export function WheelPickerRow({
   // ensure equal width across all pickers and labels
   const { width: maxWidth, onLayout: onMaxWidthLayout } = useMaxDimensions();
 
+  // add leading zero to label if specified and value is only one digit long
+  const getLabel = (n: number) =>
+    properties.addLeadingZeros && n < 10 ? "0" + String(n) : String(n);
   // for pickers get height and width
   const onPickerLayout = (event: LayoutChangeEvent) => {
     onTopRowHeightLayout(event);
@@ -45,6 +48,8 @@ export function WheelPickerRow({
   // common props passed to all pickers
   const baseProps: Partial<RepeatingWheelPickerProps<number>> = {
     enabled: props.pickersEnabled,
+    getLabel: getLabel,
+
     itemHeight: props.pickerItemHeight,
     itemDisplayCount: props.pickerItemDisplayCount ?? 3,
 

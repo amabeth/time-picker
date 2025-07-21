@@ -27,6 +27,7 @@ export function timePickerPropsWithDefaults(
     hoursTimeLabel: props.hoursTimeLabel ?? "Hours",
     minutesTimeLabel: props.minutesTimeLabel ?? "Minutes",
     secondsTimeLabel: props.secondsTimeLabel ?? "Seconds",
+    addLeadingZeros: props.addLeadingZeros ?? false,
 
     containerStyle: {
       backgroundColor: "transparent",
@@ -203,6 +204,12 @@ export type TimePickerProps = {
    * @defaultValue Seconds
    */
   secondsTimeLabel?: string;
+  /**
+   * If enabled, a leading zero will be added to all one-digit time values. All time values will therefore be two digits long.
+   *
+   * @defaultValue false
+   */
+  addLeadingZeros?: boolean;
 
   /**
    * Styling for the container of the time picker.

@@ -17,6 +17,7 @@ export default function InlinePicker() {
     setDuration: setDuration,
 
     // optional
+    addLeadingZeros: true,
     containerStyle: STYLES.timeContainer,
     pickerContainerStyle: STYLES.pickerContainer,
     timeLabelsStyle: STYLES.text
